@@ -1,6 +1,0 @@
-@media only screen and (min-width: 0) and (max-width: 991px) {
-	.ui[class*="three four column"].grid > .row > .column,
-	.ui[class*="three four column"].grid > .column:not(.row) {
-	  width: 33.33333333%;
-	}
-}
