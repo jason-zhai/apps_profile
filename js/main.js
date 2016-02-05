@@ -12,3 +12,6 @@ $(function() {
 		$(this).find('.js-openUiCard').transition();
 	});
 });
+$('.ui.dropdown')
+  .dropdown()
+;
