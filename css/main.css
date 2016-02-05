@@ -267,7 +267,6 @@ body {
 				transform .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s,
 				z-index .2s linear .3s,
 				-webkit-transform .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s;
-	overflow: hidden;
 	cursor: pointer;
 	z-index: 1;
 }
@@ -309,6 +308,14 @@ body {
 }
 .ui.flat.card {
 	box-shadow: none;
+}
+
+.ui.dropdown[class*="top left pinned"] > .menu {
+	left: -7px;
+	top: -3px;
+}
+.ui.dropdown[class*="top left pinned"] > .glyphicons {
+	z-index: 20;
 }
 
 
