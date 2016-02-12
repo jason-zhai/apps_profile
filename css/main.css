@@ -1,502 +1,65 @@
 /*! HTML5 Boilerplate v5.2.0 | MIT License | https://html5boilerplate.com/ */
 
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
-}
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-    vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-    resize: vertical;
-}
-
-/* ==========================================================================
-   Browser Upgrade Prompt
-   ========================================================================== */
-
-.browserupgrade {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
 
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
 
-/*******************************
-             Reset
-*******************************/
 
 
-/* Border-Box */
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+.ui.toggled {
+	-webkit-transition: opacity 1s ease-out;
+	transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
 }
-html {
-  box-sizing: border-box;
+.ui.toggled.active {
+	opacity: 1;
+    height: auto;
 }
-
-/* iPad Input Shadows */
-input[type="text"],
-input[type="email"],
-input[type="search"],
-input[type="password"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-/* mobile firefox too! */
+.ui.toggled.segment {
+	margin: 0;
+	padding: 0;
+	border: none;
+	box-shadow: none;
 }
-
-/*******************************
-        Site Styles
-*******************************/
-
-body {
-    background-color: #f8f8f8;
-    padding: 0 60px;
+.ui.toggled.segment.active {
+    padding: 1em;
+	border: 1px solid rgba(34,36,38,.15);
+	box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+}
+.ui.toggled.form > .field > .ui.toggle.checkbox {
+	margin-left: 1px;
 }
 
-
-.glyphicons {
-  margin: 0em 0.25rem 0em 0em;
-  width: 1.18em;
-  top: 2px;
+.ui.form > .aligned.field > label {
+	min-width: 100px;
 }
 
-@media only screen and (min-width: 0) and (max-width: 991px) {
-	.ui[class*="three four column"].grid > .row > .column,
-	.ui[class*="three four column"].grid > .column:not(.row) {
-	  width: 33.33333333%;
+.ui.form > .required.header:after {
+	margin: -.2em 0 0 .2em;
+    content: '*';
+    color: #DB2828;
+	display: inline-block;
+    vertical-align: top;
+	font-size: .9em;
+}
+
+.ui.cards.menu > .active,
+.ui.cards.menu > .active:hover {
+	box-shadow: 0 1px 3px 0 #4183C4,0 0 0 1px #4183C4;
+}
+
+.ui.form > .required.field > label + .ui.toggle.checkbox:after {
+	display: none;
+}
+
+@media only screen and (max-width: 767px) {
+	.ui.form .fields > .four.wide.field:last-child {
+		margin-bottom: 0;
 	}
 }
 
-/*-------------------
-       Hovering
---------------------*/
 
-.ui.hovering.card,
-.ui.card > .hovering.content {
-	position: absolute;
-	width: 100% !important;
-	top: 0;
-	left: 0;
-	right: 0;
-	margin: 0 !important;
-	display: none;
-	cursor: pointer;
-	z-index: 9999999;
-}
-.ui.cards > .card:hover > .card.hovering,
-.ui.card:hover > .card.hovering,
-.ui.card > .hovering.content {
-	display: block;
-}
-
-/*-------------------
-       Transitional
---------------------*/
-.ui.transitional.card {
-	-webkit-transition: height .3s cubic-bezier(0.785, 0.135, 0.150, 0.860) .3s;
-	transition: height .3s cubic-bezier(0.785, 0.135, 0.150, 0.860) .3s;
-	height: 100px;
-}
-.ui.transitional.card:hover {
-	-webkit-transition: height .3s cubic-bezier(0.785, 0.135, 0.150, 0.860);
-	transition: height .3s cubic-bezier(0.785, 0.135, 0.150, 0.860);
-	height: 460px;
-}
-.ui.transitional.card .default {
-	-webkit-transition: opacity .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) .6s,
-				padding .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) .3s;
-	transition: opacity .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) .6s,
-				padding .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) .3s;
-}
-.ui.transitional.card:hover .default {
-	-webkit-transition: opacity .1s cubic-bezier(0.785, 0.135, 0.150, 0.860),
-				padding .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) .3s;
-	transition: opacity .1s cubic-bezier(0.785, 0.135, 0.150, 0.860),
-				padding .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) .3s;
-}
-.ui.transitional.card .hover {
-	-webkit-transition: opacity .3s cubic-bezier(0.785, 0.135, 0.150, 0.860),
-				padding .1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
-	transition: opacity .3s cubic-bezier(0.785, 0.135, 0.150, 0.860),
-				padding .1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
-}
-.ui.transitional.card:hover .hover {
-	-webkit-transition: opacity .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) .5s,
-				padding .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) .5s;
-	transition: opacity .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) .5s,
-				padding .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) .5s;
-}
-.ui.transitional.card .default {
-	height: 0;
-}
-.ui.transitional.card .hover {
-	opacity: 0;
-}
-.ui.transitional.card:hover .default {
-	opacity: 0;
-	padding: 0;
-	height: 0;
-}
-.ui.transitional.card:hover .hover {
-	opacity: 1;
-}
-
-/*--------------
-  Inner Card Rounded Edges
----------------*/
-
-.ui.cards > .card > .card:first-child,
-.ui.card > .card:first-child {
-  border-radius: 0.28571429rem !important;
-}
-.ui.cards > .card > .card:last-child,
-.ui.card > .card:last-child {
-  border-radius: 0.28571429rem !important;
-}
-
-/*----------------
- text underline on hover
------------------*/
-
-.ui.cards > .card .underline:hover,
-.ui.card .underline:hover {
-  text-decoration: underline;
-}
-
-.ui.grid > .column {
-	height: 180px;
-}
-.ui.expanding.card {
-	width: 100%;
-	height: 150px;
-	-webkit-transform: translate(0, 0);
-	-ms-transform: translate(0, 0);
-	transform: translate(0, 0);
-	-webkit-transition: width .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s,
-				height .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s,
-				z-index .2s linear .3s,
-				-webkit-transform .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s;
-	transition: width .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s,
-				height .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s,
-				z-index .2s linear .3s,
-				-webkit-transform .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s;
-	transition: width .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s,
-				height .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s,
-				transform .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s,
-				z-index .2s linear .3s;
-	transition: width .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s,
-				height .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s,
-				transform .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s,
-				z-index .2s linear .3s,
-				-webkit-transform .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s;
-	cursor: pointer;
-	z-index: 1;
-}
-.ui.expanding.card:hover {
-	-webkit-transition-delay: .3s;
-	transition-delay: .3s;
-	width: 130%;
-	height: 230px;
-	-webkit-transform: translate(-11.2%, -40px);
-	-ms-transform: translate(-11.2%, -40px);
-	transform: translate(-11.2%, -40px);
-	z-index: 999999999;
-	overflow: visible;
-}
-.ui.expanding.card > .content {
-	-webkit-transition: opacity .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) .3s;
-	transition: opacity .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) .3s;
-	opacity: 100;
-}
-.ui.expanding.card:hover > .content {
-	-webkit-transition: opacity .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) .2s;
-	transition: opacity .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) .2s;
-	opacity: 0;
-}
-
-.ui.expanding.card > .hover.shown.expansion {
-	-webkit-transition: opacity .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s;
-	transition: opacity .1s cubic-bezier(0.785, 0.135, 0.150, 0.860) 0s;
-	opacity: 0;
-	position: absolute;
-	width: 100%;
-	top: 0;
-	left: 0;
-}
-.ui.expanding:hover > .hover.shown.expansion {
-	-webkit-transition: opacity .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) .4s;
-	transition: opacity .2s cubic-bezier(0.785, 0.135, 0.150, 0.860) .4s;
-	opacity: 100;
-}
-.ui.flat.card {
-	box-shadow: none;
-}
-
-.ui.dropdown[class*="top left pinned"] > .menu {
-	left: -7px;
-	top: -3px;
-}
-.ui.dropdown[class*="top left pinned"] > .glyphicons {
-	z-index: 20;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden {
-    display: none !important;
-}
-
-/*
- * Hide only visually, but have it available for screen readers:
- * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- */
-
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
-
-/*
- * Extends the .visuallyhidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-    visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 1.25dppx),
-       (min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   http://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-    *,
-    *:before,
-    *:after,
-    *:first-letter,
-    *:first-line {
-        background: transparent !important;
-        color: #000 !important; /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
-
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
-
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-
-    /*
-     * Printing Tables:
-     * http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
-
-    thead {
-        display: table-header-group;
-    }
-
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
-    }
-
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
-}
